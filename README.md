@@ -1,12 +1,5 @@
 # 🛡️ HERSHIELD - AI-Driven Women's Safety Analytics Software
 
-### OUTPUT VIDEO
-
-
-
-https://github.com/user-attachments/assets/1c774625-c0a7-43fa-9074-bb3147063d01
-
-
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) 
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.8.0-orange.svg)](https://pytorch.org/)
 [![NVIDIA](https://img.shields.io/badge/NVIDIA-GPU-green.svg)](https://www.nvidia.com/en-us/)
@@ -35,8 +28,8 @@ https://github.com/user-attachments/assets/1c774625-c0a7-43fa-9074-bb3147063d01
 
 - **Python** 🐍: The primary language used for its versatility and large ecosystem.
 - **PyTorch** 🔥: For neural network training and real-time model updates.
-- **CSP-Darknet 53** 🖼️: To generate detailed feature maps from CCTV frames.
-- **RCNN (Region-Based Convolutional Neural Network)** 👤: For gender-based classification.
+- **Mobile VNet** 🖼️: To generate detailed feature maps from CCTV frames.
+- **Finetuned YOLO through Custom Dataset** 👤: For gender-based classification.
 - **Vision Transformers (ViTs)** ⚡: Extract high-level features for identifying threats.
 - **MediaPipe** 🎥: Framework for multimodal ML pipelines.
 - **CUDA-Enabled GPUs** ⚙️: For accelerated real-time video processing.
@@ -97,19 +90,6 @@ cd hershield
 python main.py
 ```
 
----
-
-## 👨‍💻 Contributing
-
-We welcome contributions to **HERSHIELD**! Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) guide for more details.
-
----
-
-## 📝 License
-
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
-
----
 
 ## 📧 Contact
 
