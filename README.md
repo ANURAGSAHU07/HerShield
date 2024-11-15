@@ -1,101 +1,114 @@
 # 🛡️ HERSHIELD - AI-Driven Women's Safety Analytics Software
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-latest-red)
+![NVIDIA](https://img.shields.io/badge/NVIDIA-CUDA-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) 
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.8.0-orange.svg)](https://pytorch.org/)
-[![NVIDIA](https://img.shields.io/badge/NVIDIA-GPU-green.svg)](https://www.nvidia.com/en-us/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## 🔧 Environment Setup
 
-### 💡 Overview
-**HERSHIELD** is an innovative, AI-powered surveillance solution designed to enhance women’s safety through real-time monitoring of CCTV feeds. The system detects risky situations, like being alone at night or surrounded by men, and triggers instant alerts to ensure rapid police response. 
+### Using Conda (Recommended)
+1. Install [Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
-🔍 **Problem Statement**: Women's safety in public spaces is a significant issue today. **HERSHIELD** addresses this by combining advanced AI algorithms with continuous CCTV analysis, empowering authorities to act before harm occurs.
-
----
-
-## 🚀 Features
-
-- 🎥 **24/7 Video Monitoring**: Continuously monitors CCTV feeds for risk detection.
-- 👩‍🦰 **Gender Classification**: Utilizes RCNN to identify individuals' gender and assess risk factors.
-- ⚠️ **Real-Time Threat Detection**: Tracks male-to-female ratios, especially at night, to flag risky situations.
-- 📊 **Risk Score Calculation**: Generates risk scores based on time, location, and environmental factors.
-- 🔥 **Hotspot Identification**: Pinpoints high-risk zones through historical and real-time data.
-- ✋ **Gesture Recognition**: Detects distress signals such as frantic waving or SOS gestures.
-- 🚨 **Instant Alerts**: Sends immediate notifications to authorities, ensuring swift emergency response.
-
----
-
-## 🛠️ Tech Stack
-
-- **Python** 🐍: The primary language used for its versatility and large ecosystem.
-- **PyTorch** 🔥: For neural network training and real-time model updates.
-- **Mobile VNet** 🖼️: To generate detailed feature maps from CCTV frames.
-- **Finetuned YOLO through Custom Dataset** 👤: For gender-based classification.
-- **Vision Transformers (ViTs)** ⚡: Extract high-level features for identifying threats.
-- **MediaPipe** 🎥: Framework for multimodal ML pipelines.
-- **CUDA-Enabled GPUs** ⚙️: For accelerated real-time video processing.
-
----
-
-## ⚙️ How It Works
-
-1. **Frame Preprocessing**: CCTV frames are resized and normalized (640x640x3) for uniform input.
-2. **Feature Extraction**: CSP-Darknet 53 generates detailed feature maps.
-3. **Gender Detection**: RCNN classifies individuals into male or female, with bounding boxes around identified genders.
-4. **Risk Assessment**: Calculates a risk score based on factors like time, location, and the number of males/females in the scene.
-5. **Hotspot Detection**: The Hotspot Identification Algorithm tracks potential danger zones and raises alerts if necessary.
-6. **Alerting System**: Immediate notifications are sent to police or authorities when violent gestures (e.g., SOS signals) are detected.
-
----
-
-## ✨ Impact and Benefits
-
-- **Women’s Safety First**: Contributes to a significant reduction in crime rates by enabling rapid detection and response.
-- **Assists Law Enforcement**: Minimizes the need for physical patrols, saving manpower.
-- **Cost-Effective**: Uses existing CCTV infrastructure to reduce hardware costs.
-- **Highly Scalable**: Expandable to cover more extensive areas like schools, workplaces, and public transport.
-- **Promotes Gender Equality**: By creating a safer environment, women can participate more confidently in public life.
-
----
-
-## 🛠️ Installation
-
-### Prerequisites
-- Python 3.x 🐍
-- PyTorch 🔥
-- CUDA-enabled GPU ⚙️
-
-Install the required dependencies:
-
+2. Create environment from the provided YAML file:
 ```bash
+conda env create -f environment.yml
+```
+
+3. Activate the environment:
+```bash
+conda activate hershield
+```
+
+4. Verify installation:
+```bash
+python -c "import torch; print(torch.__version__)"
+python -c "import mediapipe; print(mediapipe.__version__)"
+```
+
+### Alternative Setup (using pip)
+If you prefer not to use conda, install dependencies using pip:
+```bash
+python -m venv hershield-env
+source hershield-env/bin/activate  # On Windows: hershield-env\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 🚀 Running the System
+## 💡 Overview
+HERSHIELD is an innovative, AI-powered surveillance solution designed to enhance women's safety through real-time monitoring of CCTV feeds. The system detects risky situations, like being alone at night or surrounded by men, and triggers instant alerts to ensure rapid police response.
 
+### 🔍 Problem Statement
+Women's safety in public spaces is a significant issue today. HERSHIELD addresses this by combining advanced AI algorithms with continuous CCTV analysis, empowering authorities to act before harm occurs.
+
+## 🚀 Features
+- 🎥 **24/7 Video Monitoring**: Continuously monitors CCTV feeds for risk detection
+- 👩‍🦰 **Gender Classification**: Utilizes RCNN to identify individuals' gender and assess risk factors
+- ⚠️ **Real-Time Threat Detection**: Tracks male-to-female ratios, especially at night
+- 📊 **Risk Score Calculation**: Generates risk scores based on time, location, and environmental factors
+- 🔥 **Hotspot Identification**: Pinpoints high-risk zones through historical and real-time data
+- ✋ **Gesture Recognition**: Detects distress signals such as frantic waving or SOS gestures
+- 🚨 **Instant Alerts**: Sends immediate notifications to authorities
+
+## 🛠️ Tech Stack
+- **Python** 🐍: Primary language
+- **PyTorch** 🔥: Neural network training and real-time model updates
+- **Mobile VNet** 🖼️: Detailed feature maps from CCTV frames
+- **Finetuned YOLO** 👤: Gender-based classification
+- **Vision Transformers (ViTs)** ⚡: High-level feature extraction
+- **MediaPipe** 🎥: Multimodal ML pipelines
+- **CUDA-Enabled GPUs** ⚙️: Accelerated video processing
+
+## ⚙️ How It Works
+1. **Frame Preprocessing**: CCTV frames are resized and normalized (640x640x3)
+2. **Feature Extraction**: CSP-Darknet 53 generates detailed feature maps
+3. **Gender Detection**: RCNN classifies individuals with bounding boxes
+4. **Risk Assessment**: Calculates risk scores based on multiple factors
+5. **Hotspot Detection**: Tracks potential danger zones
+6. **Alerting System**: Sends immediate notifications for detected threats
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.x
+- CUDA-enabled GPU
+- Anaconda or Miniconda (recommended)
+
+### Installation Steps
 1. Clone the repository:
-
 ```bash
 git clone https://github.com/yourusername/hershield.git
-```
-
-2. Navigate to the project folder:
-
-```bash
 cd hershield
 ```
 
-3. Start the system:
+2. Set up the environment (choose one method):
+```bash
+# Using conda (recommended):
+conda env create -f env.yml
+conda activate hershield
 
+# OR using pip:
+python -m venv hershield-env
+source hershield-env/bin/activate  # On Windows: hershield-env\Scripts\activate
+pip install -r requirements.txt
+```
+
+3. Run the system:
 ```bash
 python main.py
 ```
 
+## ✨ Impact and Benefits
+- 🛡️ **Women's Safety First**: Reduces crime rates through rapid detection
+- 👮 **Assists Law Enforcement**: Optimizes patrol resources
+- 💰 **Cost-Effective**: Leverages existing CCTV infrastructure
+- 📈 **Highly Scalable**: Expandable to various locations
+- ⚖️ **Promotes Gender Equality**: Creates safer public spaces
 
 ## 📧 Contact
+- **Team**: HERSHIELD
+- **Email**: anuragsahu4328@gmail.com
 
-For support, questions, or suggestions:
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- Team: HERSHIELD
-- Email: anuragsahu4328@gmail.com
-
----
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
