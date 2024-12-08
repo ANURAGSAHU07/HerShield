@@ -3,6 +3,10 @@
 
 
 
+https://github.com/user-attachments/assets/107fc4fc-6ab1-477f-85fa-0e31de507d49
+
+
+
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-latest-red)
 ![NVIDIA](https://img.shields.io/badge/NVIDIA-CUDA-green)
